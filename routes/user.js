@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/login", loginUser);
 router.post("/register", registerUser);
-router.use(requireAuth);
+// router.use(requireAuth);
 router.put("/update/:id", updateUser);
 
 export default router;

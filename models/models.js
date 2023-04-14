@@ -54,6 +54,12 @@ const userSchema = mongoose.Schema({
   coverPhoto: {
     type: String,
   },
+  portfolio: {
+    type: [String],
+  },
+  unavailableDates: {
+    type: [Date],
+  },
 });
 
 const user = mongoose.model("user", userSchema);
