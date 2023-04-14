@@ -1,5 +1,6 @@
 import User from "../models/models.js";
 import bcrypt from "bcrypt";
+import { request, response } from "express";
 import jsonwebtoken from "jsonwebtoken";
 
 const createToken = (_id) => {
@@ -27,6 +28,16 @@ export const registerUser = async (request, response) => {
     response.status(201).json({ registeredEmail, token });
   } catch (error) {
     response.status(409).json({ message: error.message });
+  }
+};
+
+export const updateUser = async (request, response) => {
+  let user = request.body;
+  try {
+    await User.findByIdAndUpdate(request.params.id, user, { new: true });
+    response.status(200).json(user);
+  } catch (err) {
+    response.status(404).json({ message: err.message });
   }
 };
 
