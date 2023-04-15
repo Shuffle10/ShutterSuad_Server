@@ -15,7 +15,7 @@ app.use(cors());
 app.use("/api/photographer", photographerRoutes);
 app.use("/api/user", userRoutes);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
