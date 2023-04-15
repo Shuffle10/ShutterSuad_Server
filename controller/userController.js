@@ -25,7 +25,7 @@ export const registerUser = async (request, response) => {
     await validateUser.save();
     const token = createToken(validateUser._id);
     const registeredEmail = validateUser.email;
-    response.status(201).json({ registeredEmail, token });
+    response.status(201).json({ email: registeredEmail, token });
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
