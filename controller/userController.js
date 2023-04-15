@@ -41,6 +41,14 @@ export const updateUser = async (request, response) => {
   }
 };
 
+export const deleteUser = async (request, response) => {
+  try {
+    await User.findByIdAndDelete(request.params.id);
+  } catch (err) {
+    response.status(404).json({ message: err.message });
+  }
+};
+
 export const loginUser = async (request, response) => {
   const { email, password } = request.body;
   try {
