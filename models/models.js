@@ -50,9 +50,11 @@ const userSchema = mongoose.Schema({
   },
   avatar: {
     type: String,
+    required: true,
   },
   coverPhoto: {
     type: String,
+    required: true,
   },
   portfolio: {
     type: [String],
